@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>图书商城</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei",sans-serif;
+}
+body {
+  padding-top: 70px;
+  background: #f5f7fa;
+}
+header {
+  width: 100%;
+  height: 70px;
+  background: #2c3e50;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.logo {
+  float: left;
+  font-size: 24px;
+  line-height: 70px;
+  margin-left: 20px;
+}
+nav ul {
+  float: right;
+  list-style: none;
+  margin-right: 20px;
+}
+nav li {
+  float: left;
+  margin: 0 15px;
+  line-height: 70px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+nav a:hover {
+  color: #3498db;
+}
+.container {
+  width: 1200px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+.left-sidebar {
+  width: 220px;
+  float: left;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-right: 20px;
+  position: relative;
+}
+.left-sidebar h2 {
+  margin-bottom: 15px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+}
+.left-sidebar li {
+  padding: 10px 0;
+  cursor: pointer;
+}
+.main-content {
+  width: 760px;
+  float: left;
+}
+.book-showcase, .hot-recommend, .new-books {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.book-card {
+  width: 180px;
+  height: 240px;
+  position: relative;
+  border: 1px solid #eee;
+  overflow: hidden;
+}
+.book-card img {
+  width: 100%;
+  height: 100%;
+}
+.book-hover {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  display: none;
+  cursor: pointer;
+}
+.book-card:hover .book-hover {
+  display: block;
+}
+.hot-item {
+  width: 31%;
+  height: 60px;
+  background: #f8f9fa;
+  float: left;
+  margin-right: 3.5%;
+  text-align: center;
+  line-height: 60px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.hot-item:nth-child(3n) {
+  margin-right: 0;
+}
+.hot-item:hover {
+  background: #3498db;
+  color: white;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+.right-ad {
+  width: 180px;
+  background: #e74c3c;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  position: fixed;
+  right: 20px;
+  top: 90px;
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">📚 图书商城</div>
+  <nav>
+    <ul>
+      <li><a href="#">首页</a></li>
+      <li><a href="#">图书分类</a></li>
+      <li><a href="#">热门推荐</a></li>
+      <li><a href="#">关于我们</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="container">
+  <aside class="left-sidebar">
+    <h2>图书分类</h2>
+    <ul>
+      <li>计算机</li>
+      <li>文学小说</li>
+      <li>历史传记</li>
+      <li>少儿读物</li>
+    </ul>
+  </aside>
+  <main class="main-content">
+    <section class="book-showcase">
+      <h2>图书展示</h2>
+      <div class="book-card">
+        <img src="https://picsum.photos/180/240" alt="图书">
+        <div class="book-hover">点击查看详情</div>
+      </div>
+    </section>
+    <section class="hot-recommend">
+      <h2>热门推荐</h2>
+      <div class="hot-item">Python入门</div>
+      <div class="hot-item">JavaScript实战</div>
+      <div class="hot-item">CSS权威指南</div>
+    </section>
+    <section class="new-books">
+      <h2>新书上市</h2>
+      <table>
+        <tr><th>书名</th><th>价格</th></tr>
+        <tr><td>深度学习</td><td>59元</td></tr>
+        <tr><td>前端开发</td><td>49元</td></tr>
+      </table>
+    </section>
+  </main>
+  <aside class="right-ad">
+    <h3>促销广告</h3>
+    <p>🔥全场图书8折！</p>
+    <p>🎁满100减20</p>
+  </aside>
+</div>
+</body>
+</html>

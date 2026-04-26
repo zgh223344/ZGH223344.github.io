@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>登录注册页面</title>
+  <link rel="stylesheet" href="css/lab3-2504-157-index.css">
+</head>
+<body>
+  <!-- 登录父框 -->
+  <div id="loginBox" class="auth-box">
+    <h2>用户登录</h2>
+    <div class="input-group">
+      <label>用户名：</label>
+      <input type="text" id="loginUsername" placeholder="请输入用户名">
+    </div>
+    <div class="input-group">
+      <label>密&emsp;码：</label>
+      <input type="password" id="loginPwd" placeholder="请输入密码">
+    </div>
+    <button id="loginBtn">登录</button>
+    <p class="tip">没有账号？<a href="javascript:;" id="toRegister">立即注册</a></p>
+  </div>
+
+  <!-- 注册子框 默认隐藏 -->
+  <div id="registerBox" class="auth-box" style="display: none;">
+    <h2>用户注册</h2>
+    <div class="input-group">
+      <label>用户名：</label>
+      <input type="text" id="regUsername" placeholder="请输入用户名">
+    </div>
+    <div class="input-group">
+      <label>密&emsp;码：</label>
+      <input type="password" id="regPwd" placeholder="请输入密码">
+    </div>
+    <div class="input-group">
+      <label>确认密码：</label>
+      <input type="password" id="regRePwd" placeholder="请再次输入密码">
+    </div>
+    <button id="registerBtn">注册</button>
+    <p class="tip">已有账号？<a href="javascript:;" id="toLogin">返回登录</a></p>
+  </div>
+
+  <script>
+    const loginBox = document.getElementById('loginBox');
+    const registerBox = document.getElementById('registerBox');
+    const toRegister = document.getElementById('toRegister');
+    const toLogin = document.getElementById('toLogin');
+    const loginBtn = document.getElementById('loginBtn');
+    const registerBtn = document.getElementById('registerBtn');
+
+    // 登录切注册
+    toRegister.onclick = function(){
+      loginBox.style.display = "none";
+      registerBox.style.display = "block";
+    }
+    // 注册切登录
+    toLogin.onclick = function(){
+      registerBox.style.display = "none";
+      loginBox.style.display = "block";
+    }
+
+    // 注册逻辑 localStorage本地存储
+    registerBtn.onclick = function(){
+      let uname = document.getElementById('regUsername').value.trim();
+      let pwd = document.getElementById('regPwd').value.trim();
+      let repwd = document.getElementById('regRePwd').value.trim();
+
+      if(!uname || !pwd || !repwd){
+        alert("请填写完整信息！");
+        return;
+      }
+      if(pwd !== repwd){
+        alert("两次密码输入不一致！");
+        return;
+      }
+      if(localStorage.getItem(uname)){
+        alert("该用户名已被注册！");
+        return;
+      }
+      localStorage.setItem(uname,pwd);
+      alert("注册成功，请前往登录！");
+      registerBox.style.display = "none";
+      loginBox.style.display = "block";
+      // 清空输入框
+      document.getElementById('regUsername').value = "";
+      document.getElementById('regPwd').value = "";
+      document.getElementById('regRePwd').value = "";
+    }
+
+    // 登录逻辑 比对本地存储
+    loginBtn.onclick = function(){
+      let uname = document.getElementById('loginUsername').value.trim();
+      let pwd = document.getElementById('loginPwd').value.trim();
+      if(!uname||!pwd){
+        alert("用户名和密码不能为空！");
+        return;
+      }
+      let savePwd = localStorage.getItem(uname);
+      if(savePwd && savePwd === pwd){
+        alert("登录成功！");
+      }else{
+        alert("用户名或密码错误！");
+      }
+    }
+  </script>
+</body>
+</html>

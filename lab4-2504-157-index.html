@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书展销平台 实验四</title>
+    <link rel="stylesheet" href="./css/lab4-2504-157-index.css">
+</head>
+<body>
+<!-- 登录/注册弹窗 -->
+<div class="login-modal" id="loginModal">
+    <div class="modal-box">
+        <!-- 登录表单 -->
+        <div class="login-form" id="loginForm">
+            <h2>用户登录</h2>
+            <input type="text" id="loginUsername" placeholder="请输入用户名">
+            <input type="password" id="loginPwd" placeholder="请输入密码">
+            <div class="btn-group">
+                <button class="login-btn" onclick="login()">登录</button>
+                <button onclick="showRegister()">注册账号</button>
+            </div>
+            <p id="loginTip"></p>
+        </div>
+
+        <!-- 注册表单（默认隐藏） -->
+        <div class="register-form" id="registerForm">
+            <h2>用户注册</h2>
+            <input type="text" id="regUsername" placeholder="请设置用户名">
+            <input type="password" id="regPwd" placeholder="请设置密码">
+            <input type="password" id="regPwd2" placeholder="请再次输入密码">
+            <div class="btn-group">
+                <button onclick="register()">完成注册</button>
+                <button onclick="showLogin()">返回登录</button>
+            </div>
+            <p id="regTip"></p>
+        </div>
+    </div>
+</div>
+
+<!-- 主页面（登录后显示） -->
+<div class="main-page" id="mainPage">
+    <!-- 头部导航 -->
+    <div class="header">
+        <div class="logo">图书展销平台</div>
+        <div class="nav">
+            <a href="#">首页</a>
+            <a href="#">图书分类</a>
+            <a href="#">热门推荐</a>
+            <a href="#">关于我们</a>
+            <a href="javascript:;" onclick="logout()">退出登录</a>
+            <!-- 图标：购物车、搜索（带悬停旋转动画） -->
+            <span class="icon cart-icon">🛒</span>
+            <span class="icon search-icon">🔍</span>
+        </div>
+    </div>
+
+    <!-- 轮播图区域（从下向上切换轮播） -->
+    <div class="carousel">
+        <div class="carousel-inner">
+            <img src="https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/63654/33/2304/258890/5d0a144cEbfdd8b73/b6a56c1a8095ab1d.jpg!q80.dpg" alt="红楼梦">
+            <img src="https://static.bjd.com.cn/dams-res/editing/image/202509/14/seaaoo7kyh05r96ojofojakl.jpg" alt="我与地坛">
+            <img src="https://ts2.tc.mm.bing.net/th/id/OIP-C.IIvBg4W_vP2DqTEk2Skp4AHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="狼王梦">
+        </div>
+    </div>
+
+    <!-- 主体内容 -->
+    <div class="container">
+        <!-- 左侧栏 -->
+        <div class="left">
+            <h3>图书分类</h3>
+            <ul>
+                <li>文学小说</li>
+                <li>历史名著</li>
+                <li>少儿读物</li>
+                <li>励志散文</li>
+                <li>科普书籍</li>
+            </ul>
+        </div>
+
+        <!-- 中间图书区 -->
+        <div class="main">
+            <h3>热门图书推荐</h3>
+            <div class="book-box">
+                <div class="book-item">
+                    <img src="https://m.360buyimg.com/mobilecms/s750x750_jfs/t1/63654/33/2304/258890/5d0a144cEbfdd8b73/b6a56c1a8095ab1d.jpg!q80.dpg" alt="红楼梦">
+                    <p class="book-name">《红楼梦》</p>
+                    <p class="author">曹雪芹 著</p>
+                    <p class="price">售价：¥59.80</p>
+                </div>
+                <div class="book-item">
+                    <img src="https://static.bjd.com.cn/dams-res/editing/image/202509/14/seaaoo7kyh05r96ojofojakl.jpg" alt="我与地坛">
+                    <p class="book-name">《我与地坛》</p>
+                    <p class="author">史铁生 著</p>
+                    <p class="price">售价：¥39.80</p>
+                </div>
+                <div class="book-item">
+                    <img src="https://ts2.tc.mm.bing.net/th/id/OIP-C.IIvBg4W_vP2DqTEk2Skp4AHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="狼王梦">
+                    <p class="book-name">《狼王梦》</p>
+                    <p class="author">沈石溪 著</p>
+                    <p class="price">售价：¥29.80</p>
+                </div>
+            </div>
+
+            <!-- 新书上架表格 -->
+            <div class="book-table">
+                <h3>新书上架</h3>
+                <table border="1" cellpadding="6" cellspacing="0">
+                    <tr>
+                        <th>书名</th>
+                        <th>作者</th>
+                        <th>售价</th>
+                        <th>简介</th>
+                    </tr>
+                    <tr>
+                        <td>红楼梦</td>
+                        <td>曹雪芹</td>
+                        <td>¥59.80</td>
+                        <td>古典四大名著</td>
+                    </tr>
+                    <tr>
+                        <td>我与地坛</td>
+                        <td>史铁生</td>
+                        <td>¥39.80</td>
+                        <td>经典散文作品</td>
+                    </tr>
+                    <tr>
+                        <td>狼王梦</td>
+                        <td>沈石溪</td>
+                        <td>¥29.80</td>
+                        <td>经典动物小说</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 右侧栏 -->
+        <div class="right">
+            <h3>限时促销</h3>
+            <p>✅ 全场图书8折优惠</p>
+            <p>✅ 满100减20</p>
+            <p>✅ 新人注册有礼</p>
+            <p>✅ 全国包邮发货</p>
+        </div>
+    </div>
+
+    <!-- 底部版权 -->
+    <div class="footer">
+        <p>图书展销平台 © 2025 版权所有 | 前端实验四</p>
+    </div>
+</div>
+
+<script>
+// 页面加载时判断是否已登录
+window.onload = function(){
+    if(localStorage.getItem("isLogin") === "true"){
+        document.getElementById("loginModal").style.display = "none";
+        document.getElementById("mainPage").style.display = "block";
+    }
+}
+
+// 显示注册表单
+function showRegister(){
+    document.getElementById("loginForm").style.display = "none";
+    document.getElementById("registerForm").style.display = "block";
+    document.getElementById("regTip").innerText = "";
+}
+
+// 显示登录表单
+function showLogin(){
+    document.getElementById("registerForm").style.display = "none";
+    document.getElementById("loginForm").style.display = "block";
+    document.getElementById("loginTip").innerText = "";
+}
+
+// 注册逻辑（信息存入localStorage）
+function register(){
+    let username = document.getElementById("regUsername").value.trim();
+    let pwd = document.getElementById("regPwd").value;
+    let pwd2 = document.getElementById("regPwd2").value;
+    let tip = document.getElementById("regTip");
+
+    if(username === "" || pwd === "" || pwd2 === ""){
+        tip.innerText = "请填写完整信息！";
+        tip.style.color = "red";
+        return;
+    }
+    if(pwd !== pwd2){
+        tip.innerText = "两次密码不一致！";
+        tip.style.color = "red";
+        return;
+    }
+    if(localStorage.getItem(username)){
+        tip.innerText = "该用户名已被注册！";
+        tip.style.color = "red";
+        return;
+    }
+    // 存储用户信息
+    localStorage.setItem(username, pwd);
+    tip.innerText = "注册成功！请返回登录";
+    tip.style.color = "green";
+}
+
+// 登录逻辑（与localStorage比对）
+function login(){
+    let username = document.getElementById("loginUsername").value.trim();
+    let pwd = document.getElementById("loginPwd").value;
+    let tip = document.getElementById("loginTip");
+
+    if(username === "" || pwd === ""){
+        tip.innerText = "请输入用户名和密码！";
+        tip.style.color = "red";
+        return;
+    }
+    let savedPwd = localStorage.getItem(username);
+    if(savedPwd && savedPwd === pwd){
+        tip.innerText = "登录成功！";
+        tip.style.color = "green";
+        localStorage.setItem("isLogin", "true");
+        // 隐藏弹窗，显示主页面
+        setTimeout(function(){
+            document.getElementById("loginModal").style.display = "none";
+            document.getElementById("mainPage").style.display = "block";
+        }, 500);
+    }else{
+        tip.innerText = "用户名或密码错误！";
+        tip.style.color = "red";
+    }
+}
+
+// 退出登录
+function logout(){
+    localStorage.removeItem("isLogin");
+    document.getElementById("loginModal").style.display = "flex";
+    document.getElementById("mainPage").style.display = "none";
+    // 清空表单
+    document.getElementById("loginUsername").value = "";
+    document.getElementById("loginPwd").value = "";
+    document.getElementById("regUsername").value = "";
+    document.getElementById("regPwd").value = "";
+    document.getElementById("regPwd2").value = "";
+    showLogin();
+}
+</script>
+</body>
+</html>

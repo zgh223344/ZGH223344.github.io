@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书展销平台</title>
+    <!-- 关键：这里直接引用同目录的CSS文件，GitHub Pages可以正常加载 -->
+    <link rel="stylesheet" href="lab3-2504-157-index.css">
+</head>
+<body>
+    <!-- 头部导航 -->
+    <div class="header">
+        <div class="logo">图书展销平台</div>
+        <div class="nav">
+            <a href="#">首页</a>
+            <a href="#">图书分类</a>
+            <a href="#">热门推荐</a>
+            <a href="#">关于我们</a>
+            <a href="#">退出登录</a>
+        </div>
+    </div>
+
+    <!-- 主体三栏容器 -->
+    <div class="container">
+        <!-- 左侧图书分类 -->
+        <div class="left">
+            <h3>图书分类</h3>
+            <ul>
+                <li>文学小说</li>
+                <li>历史名著</li>
+                <li>少儿读物</li>
+                <li>励志散文</li>
+                <li>科普书籍</li>
+            </ul>
+        </div>
+
+        <!-- 中间主体内容 -->
+        <div class="main">
+            <h3>热门图书推荐</h3>
+            <div class="book-box">
+                <div class="book-item">
+                    <!-- 注意：图片文件名要和你上传到仓库的完全一致，这里用示例文件名 -->
+                    <img src="hongloumeng.jpg" alt="红楼梦">
+                    <div class="book-name">《红楼梦》</div>
+                    <div class="author">曹雪芹 著</div>
+                    <div class="price">售价：¥59.80</div>
+                </div>
+                <div class="book-item">
+                    <img src="woditan.jpg" alt="我与地坛">
+                    <div class="book-name">《我与地坛》</div>
+                    <div class="author">史铁生 著</div>
+                    <div class="price">售价：¥39.80</div>
+                </div>
+                <div class="book-item">
+                    <img src="langwangmeng.jpg" alt="狼王梦">
+                    <div class="book-name">《狼王梦》</div>
+                    <div class="author">沈石溪 著</div>
+                    <div class="price">售价：¥29.80</div>
+                </div>
+            </div>
+
+            <h3>新书上架</h3>
+            <div class="book-table">
+                <table border="1" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th>书名</th>
+                        <th>作者</th>
+                        <th>售价</th>
+                        <th>简介</th>
+                    </tr>
+                    <tr>
+                        <td>红楼梦</td>
+                        <td>曹雪芹</td>
+                        <td>¥59.80</td>
+                        <td>古典四大名著</td>
+                    </tr>
+                    <tr>
+                        <td>我与地坛</td>
+                        <td>史铁生</td>
+                        <td>¥39.80</td>
+                        <td>经典散文作品</td>
+                    </tr>
+                    <tr>
+                        <td>狼王梦</td>
+                        <td>沈石溪</td>
+                        <td>¥29.80</td>
+                        <td>经典动物小说</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- 右侧栏 -->
+        <div class="right">
+            <h3>限时促销</h3>
+            <p>✅ 全场图书8折起</p>
+            <p>✅ 满100减20</p>
+            <p>✅ 新人注册送5元券</p>
+            <p>✅ 全国包邮</p>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer">
+        图书展销平台 © 2025 版权所有 | 前端实验三
+    </div>
+</body>
+</html>
